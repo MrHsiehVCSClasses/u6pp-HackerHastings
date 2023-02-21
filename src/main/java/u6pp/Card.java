@@ -92,6 +92,8 @@ public class Card {
             return true;
         } else if(this.value.equals(card.value)){
             return true;
+        } else if (card.getColor().equals("WILD")){
+            return true;
         } else {
             return false;
         }

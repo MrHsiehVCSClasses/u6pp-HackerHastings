@@ -93,7 +93,7 @@ public class Uno {
                     } 
                 }
                 if(card.getValue().equals("WILD")){
-                        if(card.trySetColor(str) == true){
+                        if(discard.peek().trySetColor(str) == true){
                             discard.peek().setColor(str);
                         }
                 }

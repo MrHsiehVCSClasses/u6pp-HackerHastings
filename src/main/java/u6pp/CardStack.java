@@ -72,7 +72,6 @@ public class CardStack {
         if(!deck.equals(otherDeck.deck)){
         while(otherDeck.getSize() > 0){
             deck.add(0, otherDeck.topPop());
-            System.out.println(deck.get(0));
         }
     }   
     }

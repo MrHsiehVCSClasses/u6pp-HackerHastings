@@ -19,19 +19,22 @@ public class UnoFrontend {
             answer = scanner.nextInt();
             if(answer < uno.players.get(uno.whichGuy).hand.size()){
                 
-                if(uno.players.get(uno.whichGuy).hand.get(answer).getColor().equals("WILD")){
-                    boolean question2 = true;
+            if(uno.players.get(uno.whichGuy).hand.get(answer).getColor().equals("WILD")){
+                boolean question2 = true;
                 while (question2){
                     System.out.println("What color u wanna set the wild bro? (answer in all caps)");
                     answer2 = scanner.nextLine();
-                    if(uno.players.get(uno.whichGuy).hand.get(answer).trySetColor(answer2) == true){
+                    System.out.println(answer2);
+                    for(String Color : Card.COLORS){
+                    if(answer2.equals(Color)){
                         isWild = 1;
                         question2 = false;
                     }
+                    }
                 }
-                }
+            }
                 question = false;
-                
+
             }
             }
             if(isWild == 1){
