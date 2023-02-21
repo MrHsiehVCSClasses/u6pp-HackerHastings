@@ -151,6 +151,7 @@ public class Uno {
                 shuffleIfEmpty();
                 players.get(0).hand.add(deck.pop());
                 shuffleIfEmpty();
+                changePlayers(false);
                 return false;
             }
         } else {

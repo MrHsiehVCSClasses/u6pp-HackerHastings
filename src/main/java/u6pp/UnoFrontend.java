@@ -17,26 +17,36 @@ public class UnoFrontend {
             while(question){
             System.out.println("Whachu wanna do, player" + uno.whichGuy + "? (answer which card you want to play in your hand, as a number)");
             answer = scanner.nextInt();
-            //if(answer < uno.players.get(uno.whichGuy).hand.size()){
-                boolean question2 = true;
-                while (question2){
+            if(answer < uno.players.get(uno.whichGuy).hand.size()){
+                
                 if(uno.players.get(uno.whichGuy).hand.get(answer).getColor().equals("WILD")){
-                    System.out.println("What color u wanna set the wild bro?");
+                    boolean question2 = true;
+                while (question2){
+                    System.out.println("What color u wanna set the wild bro? (answer in all caps)");
                     answer2 = scanner.nextLine();
                     if(uno.players.get(uno.whichGuy).hand.get(answer).trySetColor(answer2) == true){
                         isWild = 1;
                         question2 = false;
                     }
                 }
-                question2 = false;
                 }
                 question = false;
-            //}
+                
+            }
             }
             if(isWild == 1){
-                uno.playCard(uno.players.get(uno.whichGuy).hand.get(answer), answer2);
+                if(uno.playCard(uno.players.get(uno.whichGuy).hand.get(answer), answer2) == true){
+
+                } else {
+                    System.out.println("Your card didn't work, gave you one from the deck.");
+                }
+                
             } else {
-                uno.playCard(uno.players.get(uno.whichGuy).hand.get(answer), "");
+                if(uno.playCard(uno.players.get(uno.whichGuy).hand.get(answer), "")){
+
+                }else{
+                    System.out.println("Your card didn't work, gave you one from the deck.");
+                }
             }
 
             int count = 0;
