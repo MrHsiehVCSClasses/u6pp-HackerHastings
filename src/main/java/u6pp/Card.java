@@ -29,6 +29,72 @@ public class Card {
     public static String[] VALUES = {ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, 
         DRAW_2, REVERSE, SKIP, WILD, WILD_DRAW_4};
 
-    // start you code here
+    String color;
+    String value;
 
+    // start you code here
+    public Card(){
+        color = "";
+        value = "";
+    }
+
+    public Card(String color, String value){
+        this.color = color;
+        this.value = value;
+    }
+
+    public String getColor(){
+        return this.color;
+    }
+
+    public void setColor(String color){
+        this.color = color;
+    }
+
+    public boolean trySetColor(String color){
+        if(this.value == WILD){
+            if(color == null || color.equals(WILD)){
+                return false;
+            }
+            boolean bals = false;
+            for(String clr : COLORS){
+                if(color.equals(clr)){
+                    bals = true;
+                }
+            }
+            if(bals == false){
+                return false;
+            }
+            this.color = color;
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    public String getValue(){
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public boolean canPlayOn(Card card){
+        if(card == null){
+            return false;
+        }
+        if(this.value.equals(WILD) || this.color.equals(WILD)){
+            return true;
+        }
+        
+        if(this.color.equals(card.color)){
+            return true;
+        } else if(this.value.equals(card.value)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
 }
